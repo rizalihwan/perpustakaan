@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "Font Saja";
+    src: url('Aclonica.ttf');
+}
+
+@font-face {
+    font-family: "Font Welcome";
+    src: url('Pacifico.ttf');
+}
+
+@font-face {
+    font-family: "a-josep";
+    src: url('JosefinSans-Italic.ttf');
+}
+
+@font-face {
+    font-family: "SourceCodePro-Black";
+    src: url('SourceCodePro-MediumIt.otf');
+}
+
+@font-face {
+    font-family: "title-book";
+    src: url('BubblegumSans-Regular.otf');
+}
+
+@font-face {
+    font-family: "SourceCodePro-SemiboldIt";
+    src: url('SourceCodePro-Regular.otf');
+}
+
+@font-face {
+    font-family: "Mothproof_Script";
+    src: url('Mothproof_Script.ttf');
+}
+
+@font-face {
+    font-family: "Jetbrains_Mono";
+    src: url('JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: "font_detail_book";
+    src: url('BubblegumSans-Regular.otf ');
+}
+
+.detail-section-name {
+    margin: 0 0 0 10px;
+}

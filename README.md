@@ -1,61 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Selamat datang di Aplikasi Perpustakaan👋</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+[](url)
+![Screenshot_2021-01-30 Figma(1)](https://user-images.githubusercontent.com/55536560/106356894-60009700-6335-11eb-97c9-185bca17066c.png)
 
-## About Laravel
+[![](https://img.shields.io/github/issues/rizalihwan/perpustakaan?style=flat-square)](https://img.shields.io/github/issues/rizalihwan/perpustakaan?style=flat-square) ![](https://img.shields.io/github/stars/rizalihwan/perpustakaan?style=flat-square)
+![](https://img.shields.io/github/forks/rizalihwan/perpustakaan?style=flat-square) 
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a> [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg?style=flat-square)](https://saythanks.io/to/rizalihwan94%40gmail.com)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg?style=flat-square)](https://code.visualstudio.com/)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 🤔 Apa itu Perpustakaan?
+Web Perpustakaan Open Source yang dibuat oleh <a href="https://github.com/rizalihwan"> Rizal Ihwan Sulaiman. </a> **Perpustakaan adalah website peminjaman dan pengembalian buku di perpustakaan.** Perpustakaan dibuat untuk memudahkan proses peminjaman dan pengembalian buku dengan mudah.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🎉 Kenapa dibuat Open Source?
+Untuk memudahkan peminjaman dan pengembalian buku di perpustakaan secara digital. Dan untuk bahan belajar bagi yang ingin mempelajari framework Laravel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 📆 <a href="#">Release Date</a>
+- 31 January 2021
 
-## Learning Laravel
+------------
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ ### 👤 Default Akun untuk login
+	
+**Admin Default Akun**
+- Username: admin
+- Password: password
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Siswa Default Akun**
+- Username: siswa
+- Password: password
 
-## Laravel Sponsors
+------------
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 💻 Install
 
-### Premium Partners
+1. **Clone Repository**
+```bash
+git clone https://github.com/rizalihwan/perpustakaan.git
+cd perpustakaan
+composer install
+npm install
+copy .env.example .env
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+2. **Buka ```.env``` lalu ubah baris berikut sesuai dengan databasemu yang ingin dipakai, karena di project ini menggunakan PostgreSQL jadi saya kasih contoh seperti berikut, dan jika kamu ingin menggunakan MySQL atau lainnya tinggal sesuaikan.**
+```
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=perpus
+DB_USERNAME=postgres
+DB_PASSWORD=root
+```
 
-## Contributing
+3. **Instalasi website**
+```bash
+php artisan key:generate
+php artisan db:fresh (because i create new command for migrate tables & run the seeder)
+php artisan storage:link
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. **Jalankan website**
+```command
+php artisan serve
+```
 
-## Code of Conduct
+## 🧑 Author
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+👤 <a href="https://www.facebook.com/izal.whanz/"> **Rizal Ihwan**</a>
+- Facebook : <a href="https://www.facebook.com/izal.whanz/"> Rizal Ihwan</a>
+- LinkedIn : <a href="https://www.linkedin.com/in/rizal-ihwan-98a8a9199/"> Rizal Ihwan</a>
 
-## Security Vulnerabilities
+## 🤝 Contributing
+Sangat berterima kasih bagi yang ingin berkontribusi. **Karena Project ini saya selesaikan sendiri, tapi apabila anda ingin berkontribusi sangat dipersilahkan ya.**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## 📝 License
+- Copyright © 2021 Rizal Ihwan.
+- **Perpustakaan is open-sourced software licensed under the MIT license.**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+------------
+
+- **Feel free to ask me at [Telegram](https://t.me/ihw_me/).**
+

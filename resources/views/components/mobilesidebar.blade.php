@@ -25,44 +25,29 @@ x-transition:leave-end="opacity-0 transform -translate-x-20"
 <img src="{{ asset('logo/logoweb.png') }}" alt="" width="80px" style="margin: auto;">
 <ul class="mt-6">
     <li class="relative px-6 py-3">
-      <a
-        class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-        href="{{ route('admin.dashboard') }}"
-      >
-      <i class="fas fa-home"></i> <span class="ml-4" style="{{ request()->is('admin/dashboard') ? 'color: blue; font-weight: bold;' : '' }}">Dashboard</span>
-      </a>
-    </li>
-    <li class="relative px-6 py-3">
-      <a
-        class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-        href="{{ route('admin.pengguna.index') }}"
-      >
-        <i class="fas fa-user"></i> <span class="ml-4" style="{{ request()->is('admin/pengguna') || request()->is('admin/pengguna/create') ? 'color: blue; font-weight: bold;' : ''  }}">Pengguna</span>
-      </a>
-    </li>
-    <li class="relative px-6 py-3">
+        <a
+          class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+          href="{{ route('admin.dashboard') }}"
+        >
+        <i class="fas fa-home"></i> <span class="ml-4" style="{{ request()->is('admin/dashboard') ? 'color: blue; font-weight: bold;' : '' }}">Dashboard</span>
+        </a>
+      </li>
+      <li class="relative px-6 py-3">
+        <a
+          class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+          href="{{ route('admin.pengguna.index') }}"
+        >
+          <i class="fas fa-users"></i> <span style="margin-left: 15px; {{ request()->is('admin/pengguna') || request()->is('admin/pengguna/create') ? 'color: blue; font-weight: bold;' : ''  }}">Pengguna</span>
+        </a>
+      </li>
+      <li class="relative px-6 py-3">
         <button
           class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
           @click="togglePagesMenu"
           aria-haspopup="true"
         >
-          <span class="inline-flex items-center">
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-              ></path>
-            </svg>
-            <span class="ml-4">Pages</span>
-          </span>
+
+        <i class="fas fa-book"></i><span style="margin-left: -28px; {{ request()->is('admin/buku') || request()->is('admin/buku/create') || request()->is('admin/kategori') || request()->is('admin/kategori/create') || request()->is('admin/pengarang') || request()->is('admin/pengarang/create') || request()->is('admin/penerbit') || request()->is('admin/penerbit/create') ? 'color: blue; font-weight: bold;' : ''  }}">Manajemen Buku</span>
           <svg
             class="w-4 h-4"
             aria-hidden="true"
@@ -90,33 +75,73 @@ x-transition:leave-end="opacity-0 transform -translate-x-20"
             <li
               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
             >
-              <a class="w-full" href="pages/login.html">Login</a>
+              <a class="w-full" href="{{ route('admin.buku.index') }}" style="{{ request()->is('admin/buku') || request()->is('admin/buku/create') ? 'color: blue; font-weight: bold;' : ''  }}">Buku</a>
             </li>
             <li
               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
             >
-              <a class="w-full" href="pages/create-account.html">
-                Create account
+              <a class="w-full" href="{{ route('admin.kategori.index') }}" style="{{ request()->is('admin/kategori') || request()->is('admin/kategori/create') ? 'color: blue; font-weight: bold;' : ''  }}">
+                Kategori
               </a>
             </li>
             <li
               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
             >
-              <a class="w-full" href="pages/forgot-password.html">
-                Forgot password
+              <a class="w-full" href="{{ route('admin.pengarang.index') }}" style="{{ request()->is('admin/pengarang') || request()->is('admin/pengarang/create') ? 'color: blue; font-weight: bold;' : ''  }}">
+                Pengarang
               </a>
             </li>
             <li
               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
             >
-              <a class="w-full" href="pages/404.html">404</a>
-            </li>
-            <li
-              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-            >
-              <a class="w-full" href="pages/blank.html">Blank</a>
+              <a class="w-full" href="{{ route('admin.penerbit.index') }}" style="{{ request()->is('admin/penerbit') || request()->is('admin/penerbit/create') ? 'color: blue; font-weight: bold;' : ''  }}">
+                Penerbit
+              </a>
             </li>
           </ul>
+        </template>
+      </li>
+      <li class="relative px-6 py-3">
+          <a
+            class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+            href="{{ route('admin.kelas.index') }}"
+          >
+          <i class="fas fa-id-card"></i> <span style="margin-left: 17px; {{ request()->is('admin/kelas') || request()->is('admin/kelas/create') ? 'color: blue; font-weight: bold;' : ''  }}">Kelas</span>
+          </a>
+      </li>
+      <li class="relative px-6 py-3">
+          <a
+            class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+            href="{{ route('admin.siswa.index') }}"
+          >
+          <i class="fas fa-user-graduate"></i> <span style="margin-left: 19px; {{ request()->is('admin/siswa') || request()->is('admin/siswa/create') ? 'color: blue; font-weight: bold;' : ''  }}">Siswa</span>
+          </a>
+      </li>
+      <li class="relative px-6 py-3">
+          <a
+            class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+            href="{{ route('admin.pinjam.index') }}"
+          >
+          <i class="fas fa-american-sign-language-interpreting"></i> <span style="margin-left: 14px; {{ request()->is('admin/pinjam') || request()->is('admin/pinjam/create') ? 'color: blue; font-weight: bold;' : ''  }}">Peminjaman</span>
+          </a>
+      </li>
+      <li class="relative px-6 py-3">
+          <a
+            class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+            href="{{ route('admin.fine') }}"
+          >
+          <i class="fas fa-money-bill-wave"></i> <span style="margin-left: 14px; {{ request()->is('admin/fine') ? 'color: blue; font-weight: bold;' : ''  }}">Denda</span>
+          </a>
+      </li>
+      <li class="relative px-6 py-3">
+          <a
+            class="inline-flex items-center w-full text-sm text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+            href="{{ route('admin.laporan.peminjaman') }}"
+          >
+          <i class="fas fa-chart-line"></i> <span style="margin-left: 18px; {{ request()->is('admin/borrowing_report') || request()->is('admin/borrowing_report/search') ? 'color: blue; font-weight: bold;' : ''  }}">Laporan Peminjaman</span>
+          </a>
+      </li>
+  </ul>
         </template>
       </li>
   </ul>

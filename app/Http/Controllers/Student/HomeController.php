@@ -9,11 +9,6 @@ use App\Models\Category;
 
 class HomeController extends Controller
 {
-    // title properti
-    public $titleDefault = "Semua Buku";
-    public $titleLatest = "Buku Terbaru";
-    public $titleAsc = "Buku dari (A - Z)";
-    public $titleDesc = "Buku dari (Z - A)";
 
     public function index()
     {

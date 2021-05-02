@@ -52,9 +52,9 @@ class LoginController extends Controller
     {
         if(auth()->user()->role == 'admin')
         {
-            toast('Selamat Datang Admin','success')->position('top-right')->hideCloseButton()->autoClose(3000);
+            Alert::success('Message Information', 'Selamat Datang Admin');
         } else {
-            toast('Selamat Datang Siswa','success')->position('top-right')->hideCloseButton()->autoClose(3000);
+            Alert::success('Message Information', 'Selamat Datang Siswa');
         }
     }
 
@@ -66,7 +66,7 @@ class LoginController extends Controller
     public function logout()
     {
         $this->guard()->logout();
-        toast('Logout Sukses','success')->position('top-right')->hideCloseButton()->autoClose(3000);
+        Alert::success('Message Information', 'Logout Sukses');
         return redirect()->route('login');
     }
 }

@@ -8,15 +8,15 @@
         <i class="fa fa-plus"></i>
         <span style="font-size: 13px;">Tambah Kelas</span>
     </a>
-    <form action="{{ route('admin.kelas.delete') }}" method="post">
+    <button type="submit" onclick="deleteAllClass('Menghapus Semua Kelas')"
+        class="flex items-center justify-between px-4 py-2 mb-2 text-sm font-semibold leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
+        style="width: 150px; background-color: rgb(226, 56, 13);">
+        <i class="fa fa-minus"></i>
+        <span style="font-size: 13px;">Hapus Semua</span>
+    </button>
+    <form action="{{ route('admin.kelas.delete') }}" method="post" id="Delete">
         @csrf
         @method('DELETE')
-        <button type="submit" onclick="return confirm('Apa anda yakin ingin menghapus semua kelas?');"
-            class="flex items-center justify-between px-4 py-2 mb-2 text-sm font-semibold leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
-            style="width: 150px; background-color: rgb(226, 56, 13);">
-            <i class="fa fa-minus"></i>
-            <span style="font-size: 13px;">Hapus Semua</span>
-        </button>
     </form>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
         <div class="w-full overflow-x-auto">
@@ -48,19 +48,20 @@
                                             </path>
                                         </svg>
                                     </a>
-                                    <form action="{{ route('admin.kelas.destroy', $classroom->id) }}" method="post">
+                                    <button
+                                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                        aria-label="Delete"
+                                        onclick="deleteAlert('{{ $classroom->id }}', 'Menghapus Kelas {{ $classroom->name }}')">
+                                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                    <form action="{{ route('admin.kelas.destroy', $classroom->id) }}" method="post"
+                                        id="Delete{{ $classroom->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button
-                                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                            aria-label="Delete"
-                                            onclick="return confirm('Apakah Anda yakin untuk menghapus data?');">
-                                            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </button>
                                     </form>
                                 </div>
                             </td>
@@ -87,4 +88,7 @@
             </span>
         </div>
     </div>
+@endsection
+@section('script')
+@include('alert.delete')
 @endsection

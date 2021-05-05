@@ -45,16 +45,17 @@
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
-                                    <form action="{{ route('admin.pinjam.destroy', $borrowing->id) }}" method="post">
+                                    <button
+                                        onclick="deleteAlert('{{ $borrowing->id }}', 'Menghapus Peminjaman Buku {{ $borrowing->book->name }}, yang dipinjam oleh siswa {{ $borrowing->student->FullName }}')"
+                                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+                                        Kembali
+                                    </button>
+                                    <form action="{{ route('admin.pinjam.destroy', $borrowing->id) }}" method="post"
+                                        id="Delete{{ $borrowing->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button
-                                            onclick="return confirm('Apakah anda yakin ingin mengembalikan buku yang dipilih?');"
-                                            class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
-                                            Kembali
-                                        </button>
                                     </form>
-                                    <a href="{{ route('admin.pinjam.edit', $borrowing->id) }}" style="margin-left: 3px;"
+                                    <a href="{{ route('admin.pinjam.edit', $borrowing->id) }}" style="margin-left: -9px;"
                                         class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                         Perpanjang
                                     </a>
@@ -84,4 +85,7 @@
             </span>
         </div>
     </div>
+@endsection
+@section('script')
+@include('alert.delete')
 @endsection

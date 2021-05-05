@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 // login security
 Route::get('/', function () {
     return view('auth.login');
-})->middleware('guest');
+});
 Auth::routes();
 
 // student

@@ -18,7 +18,7 @@ class RegisterUserController extends Controller
     public function index()
     {
         return view('admin.pengguna.index', [
-            'users' => User::orderBy('name', 'ASC')->paginate(5)
+            'users' => User::orderBy('name', 'ASC')->where('id', '!=', auth()->user()->id)->paginate(5)
         ]);
     }
 

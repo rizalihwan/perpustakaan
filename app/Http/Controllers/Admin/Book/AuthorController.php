@@ -42,7 +42,12 @@ class AuthorController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        Author::create($request->all());
+        try{
+            Author::create($request->all());
+        } catch(\Exception err) {
+            return "Error: " . err->getMessage();
+        }
+
         Alert::success('Informasi Pesan!', 'Pengarang Baru Berhasil ditambahkan');
         return redirect()->route('admin.pengarang.index');
     }
@@ -79,7 +84,12 @@ class AuthorController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        Author::findOrFail($id)->update($request->all());
+        try{
+            Author::findOrFail($id)->update($request->all());
+        } catch(\Exception err) {
+            return "Error: " . err->getMessage();
+        }
+
         Alert::success('Informasi Pesan!', 'Pengarang Berhasil diupdate');
         return redirect()->route('admin.pengarang.index');
     }

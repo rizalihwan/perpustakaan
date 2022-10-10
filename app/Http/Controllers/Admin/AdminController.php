@@ -19,23 +19,28 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $buku = Book::get();
-        $categories = [];
-        $data = [];
-        foreach($buku as $pj)
-        {
-            $pinjam = Borrowing::where('book_id', $pj->id)->count();
-            $categories[] = $pj->name;
-            $data[] = $pinjam;
+        try{
+            $buku = Book::get();
+            $categories = [];
+            $data = [];
+            foreach($buku as $pj)
+            {
+                $pinjam = Borrowing::where('book_id', $pj->id)->count();
+                $categories[] = $pj->name;
+                $data[] = $pinjam;
+            }
+        } catch(\Exception err) {
+            return "Error: " . err->getMessage();
         }
-        return view('admin.dashboard', [
-            'books' => Book::count(),
-            'classrooms' => Classroom::count(),
-            'students' => Student::count(),
-            'admins' => User::where('role', 'admin')->count(),
-            'categories' => $categories,
-            'data' => $data
-        ]);
+
+            return view('admin.dashboard', [
+                'books' => Book::count(),
+                'classrooms' => Classroom::count(),
+                'students' => Student::count(),
+                'admins' => User::where('role', 'admin')->count(),
+                'categories' => $categories,
+                'data' => $data
+            ]);
     }
 
     /**

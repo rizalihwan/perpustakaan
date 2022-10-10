@@ -64,11 +64,17 @@ class BookController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->all();
-        $thumbnail = request()->file('thumbnail')->store("images/books");
-        $data['thumbnail'] = $thumbnail;
-        Book::create($data);
-        Alert::success('Informasi Pesan!', 'Buku Berhasil ditambahkan');
+        try {
+            $data = $request->all();
+            $thumbnail = request()->file('thumbnail')->store("images/books");
+            $data['thumbnail'] = $thumbnail;
+            Book::create($data);
+            Alert::success('Informasi Pesan!', 'Buku Berhasil ditambahkan');
+        } catch(\Exception $e) {
+            \Log::error($e);
+            return "Terjadi Kesalahan";
+        }
+        
         return redirect()->route('admin.buku.index');
     }
 

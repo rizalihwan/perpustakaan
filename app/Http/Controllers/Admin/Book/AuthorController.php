@@ -44,8 +44,8 @@ class AuthorController extends Controller
     {
         try{
             Author::create($request->all());
-        } catch(\Exception err) {
-            return "Error: " . err->getMessage();
+        } catch(\Exception $err) {
+            return "Error: " . $err->getMessage();
         }
 
         Alert::success('Informasi Pesan!', 'Pengarang Baru Berhasil ditambahkan');
@@ -86,8 +86,8 @@ class AuthorController extends Controller
     {
         try{
             Author::findOrFail($id)->update($request->all());
-        } catch(\Exception err) {
-            return "Error: " . err->getMessage();
+        } catch(\Exception $err) {
+            return "Error: " . $err->getMessage();
         }
 
         Alert::success('Informasi Pesan!', 'Pengarang Berhasil diupdate');

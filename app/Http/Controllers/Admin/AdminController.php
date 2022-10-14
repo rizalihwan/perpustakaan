@@ -19,7 +19,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        try{
+       try { 
             $buku = Book::get();
             $categories = [];
             $data = [];
@@ -29,8 +29,8 @@ class AdminController extends Controller
                 $categories[] = $pj->name;
                 $data[] = $pinjam;
             }
-        } catch(\Exception err) {
-            return "Error: " . err->getMessage();
+        } catch (\Exception $err) {
+            return "Error: " . $err->getMessage();
         }
 
             return view('admin.dashboard', [

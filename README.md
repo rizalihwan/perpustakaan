@@ -38,7 +38,7 @@ git clone https://github.com/rizalihwan/perpustakaan.git
 cd perpustakaan
 composer install
 npm install
-copy .env.example .env
+cp .env.example .env
 ```
 
 2. **Buka ```.env``` lalu ubah baris berikut sesuai dengan databasemu yang ingin dipakai, karena di project ini menggunakan PostgreSQL jadi saya kasih contoh seperti berikut, dan jika kamu ingin menggunakan MySQL atau lainnya tinggal sesuaikan.**
